@@ -13,7 +13,7 @@ async def parse(req: URLRequest):
     try:
         # 1. Scrape the URL
         scraper = scrape_me(req.url)
-        text = f"{scraper.title()}\n{scraper.instructions()}"
+        text = f"{scraper.title()}\n\nINGREDIENTS:\n{scraper.ingredients()}\n\nINSTRUCTIONS:\n{scraper.instructions()}"
         
         # 2. Run your existing Logic
         data = parse_raw_recipe(text, req.url)
